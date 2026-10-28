@@ -1,0 +1,15 @@
+node_modules
+.env
+artifacts
+cache
+typechain-types
+dist
+
+# Hardhat coverage and logs
+coverage
+coverage.json
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

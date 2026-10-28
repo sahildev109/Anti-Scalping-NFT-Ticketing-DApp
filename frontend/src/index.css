@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-brand: 99 102 241; /* indigo-500 */
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent zoom on input focus on iOS */
+    touch-action: manipulation;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Prevent UI zoom on input focus on iOS by enforcing minimum 16px font size */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100;
+    /* Respect iOS safe areas (notch, home indicator) */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@layer utilities {
+  /* iOS safe area padding for the tab bar */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Custom scrollbar for dark theme */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full;
+  }
+}
